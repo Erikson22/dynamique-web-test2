@@ -30,8 +30,8 @@ export function DashboardSidebar() {
     <Sidebar>
       <SidebarHeader>
         <div className="flex items-center gap-2 px-4 cursor-pointer" onClick={() => handleNavigation("/")}>
-          <HomeIcon size={24} />
-          <span className="font-bold text-lg">Smart Home</span>
+          <img src="/spider-home-logo.png" alt="Spider Home Logo" className="h-8 w-8" />
+          <span className="font-bold text-lg">Spider Home</span>
         </div>
       </SidebarHeader>
       

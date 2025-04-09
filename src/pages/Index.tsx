@@ -20,7 +20,7 @@ const Index = () => {
   
   return (
     <SidebarProvider>
-      <div className="flex w-full min-h-screen bg-white">
+      <div className="flex w-full min-h-screen bg-[#fbfcfc]">
         <DashboardSidebar />
         
         {/* Floating Sidebar Button - visible on all pages */}
@@ -40,7 +40,10 @@ const Index = () => {
         <SidebarInset>
           <div className="flex items-center p-4 border-b">
             <SidebarTrigger className="mr-4" />
-            <h1 className="text-xl font-bold">Smart Home Control</h1>
+            <div className="flex items-center">
+              <img src="/spider-home-logo.png" alt="Spider Home Logo" className="h-8 w-8 mr-2" />
+              <h1 className="text-xl font-bold">Spider Home</h1>
+            </div>
           </div>
           
           {isDashboardRoute ? (
@@ -107,18 +110,18 @@ const Index = () => {
                   />
                 </div>
               </FeatureCarousel>
-              
-              {/* Statistics Section - Removed as per user request */}
-              
             </div>
           )}
           
           {/* Footer */}
-          <footer className="bg-[#05445E] text-white py-8 mt-16">
+          <footer className="bg-[#02111f] text-white py-8 mt-16">
             <div className="container mx-auto px-4">
               <div className="flex flex-col md:flex-row justify-between">
                 <div className="mb-6 md:mb-0">
-                  <h2 className="text-xl font-bold mb-4">Smart Home Control</h2>
+                  <div className="flex items-center mb-4">
+                    <img src="/spider-home-logo.png" alt="Spider Home Logo" className="h-8 w-8 mr-2" />
+                    <h2 className="text-xl font-bold">Spider Home</h2>
+                  </div>
                   <p className="text-white/70 max-w-md">
                     Simplify your life with our intuitive smart home system.
                     Control all your devices from anywhere in the world.
@@ -156,7 +159,7 @@ const Index = () => {
               </div>
               
               <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50">
-                <p>© 2025 Smart Home Control. All rights reserved.</p>
+                <p>© 2025 Spider Home. All rights reserved.</p>
               </div>
             </div>
           </footer>
