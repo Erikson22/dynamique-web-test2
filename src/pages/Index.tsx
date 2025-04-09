@@ -92,29 +92,8 @@ const Index = () => {
                 </div>
               </FeatureCarousel>
               
-              {/* Statistics Section */}
-              <div className="bg-[#F6F9FC] rounded-2xl p-8 mt-16">
-                <Heading>Why Choose Us</Heading>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="text-4xl font-bold text-[#189AB4] mb-2">99%</div>
-                    <div className="text-gray-600">Customer Satisfaction</div>
-                  </div>
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="text-4xl font-bold text-[#189AB4] mb-2">500+</div>
-                    <div className="text-gray-600">Compatible Devices</div>
-                  </div>
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="text-4xl font-bold text-[#189AB4] mb-2">24/7</div>
-                    <div className="text-gray-600">Technical Support</div>
-                  </div>
-                  <div className="flex flex-col items-center text-center p-4">
-                    <div className="text-4xl font-bold text-[#189AB4] mb-2">5★</div>
-                    <div className="text-gray-600">User Ratings</div>
-                  </div>
-                </div>
-              </div>
+              {/* Statistics Section - Removed as per user request */}
+              
             </div>
           )}
           
