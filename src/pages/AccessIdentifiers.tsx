@@ -68,7 +68,8 @@ const AccessIdentifiers = () => {
                       <Badge variant={user.role === "Administrateur" ? "default" : user.role === "Utilisateur" ? "secondary" : "outline"}>
                         {user.role}
                       </Badge>
-                      <Badge variant={user.status === "Actif" ? "success" : "destructive"}>
+                      <Badge variant={user.status === "Actif" ? "default" : "destructive"} 
+                             className={user.status === "Actif" ? "bg-green-500 hover:bg-green-600" : ""}>
                         {user.status}
                       </Badge>
                       <Button variant="outline" size="sm">Modifier</Button>
