@@ -14,7 +14,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { HomeIcon, RollerShutter, Channels, Smile } from "./CustomIcons";
-import { Settings, BarChart3, BellRing } from "lucide-react";
+import { Settings, BarChart3, BellRing, Home } from "lucide-react";
 
 export function DashboardSidebar() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export function DashboardSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex items-center gap-2 px-4">
+        <div className="flex items-center gap-2 px-4 cursor-pointer" onClick={() => handleNavigation("/")}>
           <HomeIcon size={24} />
           <span className="font-bold text-lg">Smart Home</span>
         </div>
@@ -40,6 +40,17 @@ export function DashboardSidebar() {
           <SidebarGroupLabel>Menu Principal</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  tooltip="Accueil" 
+                  isActive={activeItem === "/"}
+                  onClick={() => handleNavigation("/")}
+                >
+                  <Home />
+                  <span>Accueil</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
               <SidebarMenuItem>
                 <SidebarMenuButton 
                   tooltip="Tableau de bord" 
