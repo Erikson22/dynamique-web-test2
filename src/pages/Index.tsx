@@ -1,12 +1,151 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import Hero from "@/components/Hero";
+import FeatureCard from "@/components/FeatureCard";
+import FeatureCarousel from "@/components/FeatureCarousel";
+import Heading from "@/components/Heading";
+import { Smile, Channels, HomeIcon, RollerShutter } from "@/components/CustomIcons";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-white">
+      <Hero />
+      
+      <div className="container mx-auto px-4 py-12">
+        {/* Featured Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <FeatureCard 
+            icon={Channels}
+            title="Channels"
+            description="Control your automation channels"
+            className="animate-fade-in opacity-0"
+            style={{ animationDelay: "0.2s" }}
+          />
+          <FeatureCard 
+            icon={HomeIcon}
+            title="I/O Devices"
+            description="Manage all your connected devices"
+            className="animate-fade-in opacity-0"
+            style={{ animationDelay: "0.4s" }}
+          />
+        </div>
+        
+        {/* More Features Section */}
+        <Heading>Discover More Features</Heading>
+        
+        <FeatureCarousel>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FeatureCard 
+              icon={RollerShutter}
+              title="Roller shutters"
+              description="Open and shut roller shutters"
+            />
+            <FeatureCard 
+              icon={HomeIcon}
+              title="Home appliances"
+              description="Control home appliances"
+            />
+            <FeatureCard 
+              icon={Smile}
+              title="And more"
+              description="All the above and many more can be done from your phone or tablet"
+            />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FeatureCard 
+              icon={Smile}
+              title="Security"
+              description="Monitor and control security systems"
+            />
+            <FeatureCard 
+              icon={Channels}
+              title="Lighting"
+              description="Control lighting throughout your home"
+            />
+            <FeatureCard 
+              icon={HomeIcon}
+              title="Climate"
+              description="Manage temperature and climate control systems"
+            />
+          </div>
+        </FeatureCarousel>
+        
+        {/* Statistics Section */}
+        <div className="bg-[#F6F9FC] rounded-2xl p-8 mt-16">
+          <Heading>Why Choose Us</Heading>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center text-center p-4">
+              <div className="text-4xl font-bold text-[#189AB4] mb-2">99%</div>
+              <div className="text-gray-600">Customer Satisfaction</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-4">
+              <div className="text-4xl font-bold text-[#189AB4] mb-2">500+</div>
+              <div className="text-gray-600">Compatible Devices</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-4">
+              <div className="text-4xl font-bold text-[#189AB4] mb-2">24/7</div>
+              <div className="text-gray-600">Technical Support</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-4">
+              <div className="text-4xl font-bold text-[#189AB4] mb-2">5★</div>
+              <div className="text-gray-600">User Ratings</div>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      {/* Footer */}
+      <footer className="bg-[#05445E] text-white py-8 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between">
+            <div className="mb-6 md:mb-0">
+              <h2 className="text-xl font-bold mb-4">Smart Home Control</h2>
+              <p className="text-white/70 max-w-md">
+                Simplify your life with our intuitive smart home system.
+                Control all your devices from anywhere in the world.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              <div>
+                <h3 className="font-semibold mb-2">Product</h3>
+                <ul className="space-y-1 text-white/70">
+                  <li><a href="#" className="hover:text-white">Features</a></li>
+                  <li><a href="#" className="hover:text-white">Pricing</a></li>
+                  <li><a href="#" className="hover:text-white">Downloads</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="font-semibold mb-2">Support</h3>
+                <ul className="space-y-1 text-white/70">
+                  <li><a href="#" className="hover:text-white">Help Center</a></li>
+                  <li><a href="#" className="hover:text-white">Documentation</a></li>
+                  <li><a href="#" className="hover:text-white">Contact Us</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="font-semibold mb-2">Follow Us</h3>
+                <ul className="space-y-1 text-white/70">
+                  <li><a href="#" className="hover:text-white">Twitter</a></li>
+                  <li><a href="#" className="hover:text-white">Facebook</a></li>
+                  <li><a href="#" className="hover:text-white">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50">
+            <p>© 2025 Smart Home Control. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
