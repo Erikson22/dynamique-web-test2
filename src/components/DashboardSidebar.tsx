@@ -1,5 +1,6 @@
 
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -16,6 +17,15 @@ import { HomeIcon, RollerShutter, Channels, Smile } from "./CustomIcons";
 import { Settings, BarChart3, BellRing } from "lucide-react";
 
 export function DashboardSidebar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState(location.pathname);
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setActiveItem(path);
+  };
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -31,25 +41,41 @@ export function DashboardSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Tableau de bord">
+                <SidebarMenuButton 
+                  tooltip="Tableau de bord" 
+                  isActive={activeItem === "/dashboard"}
+                  onClick={() => handleNavigation("/dashboard")}
+                >
                   <BarChart3 />
                   <span>Tableau de bord</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Appareils">
+                <SidebarMenuButton 
+                  tooltip="Appareils" 
+                  isActive={activeItem === "/devices"}
+                  onClick={() => handleNavigation("/devices")}
+                >
                   <HomeIcon />
                   <span>Appareils</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Automatisations">
+                <SidebarMenuButton 
+                  tooltip="Automatisations" 
+                  isActive={activeItem === "/automations"}
+                  onClick={() => handleNavigation("/automations")}
+                >
                   <Channels />
                   <span>Automatisations</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Notifications">
+                <SidebarMenuButton 
+                  tooltip="Notifications" 
+                  isActive={activeItem === "/notifications"}
+                  onClick={() => handleNavigation("/notifications")}
+                >
                   <BellRing />
                   <span>Notifications</span>
                 </SidebarMenuButton>
@@ -63,13 +89,21 @@ export function DashboardSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Volets">
+                <SidebarMenuButton 
+                  tooltip="Volets" 
+                  isActive={activeItem === "/shutters"}
+                  onClick={() => handleNavigation("/shutters")}
+                >
                   <RollerShutter />
                   <span>Volets</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Éclairage">
+                <SidebarMenuButton 
+                  tooltip="Éclairage" 
+                  isActive={activeItem === "/lighting"}
+                  onClick={() => handleNavigation("/lighting")}
+                >
                   <Smile />
                   <span>Éclairage</span>
                 </SidebarMenuButton>
@@ -82,7 +116,11 @@ export function DashboardSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip="Paramètres">
+            <SidebarMenuButton 
+              tooltip="Paramètres" 
+              isActive={activeItem === "/settings"}
+              onClick={() => handleNavigation("/settings")}
+            >
               <Settings />
               <span>Paramètres</span>
             </SidebarMenuButton>

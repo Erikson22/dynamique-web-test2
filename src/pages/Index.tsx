@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Hero from "@/components/Hero";
 import FeatureCard from "@/components/FeatureCard";
@@ -8,9 +9,12 @@ import Heading from "@/components/Heading";
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { Smile, Channels, HomeIcon, RollerShutter } from "@/components/CustomIcons";
+import Dashboard from "./Dashboard";
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const location = useLocation();
+  const isDashboardRoute = location.pathname === "/dashboard";
   
   return (
     <SidebarProvider>
@@ -23,92 +27,96 @@ const Index = () => {
             <h1 className="text-xl font-bold">Smart Home Control</h1>
           </div>
           
-          <div className="container mx-auto px-4 py-6">
-            <Hero />
-            
-            {/* Featured Cards Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              <FeatureCard 
-                icon={Channels}
-                title="Channels"
-                description="Control your automation channels"
-                className="animate-fade-in opacity-0"
-                style={{ animationDelay: "0.2s" }}
-              />
-              <FeatureCard 
-                icon={HomeIcon}
-                title="I/O Devices"
-                description="Manage all your connected devices"
-                className="animate-fade-in opacity-0"
-                style={{ animationDelay: "0.4s" }}
-              />
-            </div>
-            
-            {/* More Features Section */}
-            <Heading>Discover More Features</Heading>
-            
-            <FeatureCarousel>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <FeatureCard 
-                  icon={RollerShutter}
-                  title="Roller shutters"
-                  description="Open and shut roller shutters"
-                />
-                <FeatureCard 
-                  icon={HomeIcon}
-                  title="Home appliances"
-                  description="Control home appliances"
-                />
-                <FeatureCard 
-                  icon={Smile}
-                  title="And more"
-                  description="All the above and many more can be done from your phone or tablet"
-                />
-              </div>
+          {isDashboardRoute ? (
+            <Dashboard />
+          ) : (
+            <div className="container mx-auto px-4 py-6">
+              <Hero />
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <FeatureCard 
-                  icon={Smile}
-                  title="Security"
-                  description="Monitor and control security systems"
-                />
+              {/* Featured Cards Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                 <FeatureCard 
                   icon={Channels}
-                  title="Lighting"
-                  description="Control lighting throughout your home"
+                  title="Channels"
+                  description="Control your automation channels"
+                  className="animate-fade-in opacity-0"
+                  style={{ animationDelay: "0.2s" }}
                 />
                 <FeatureCard 
                   icon={HomeIcon}
-                  title="Climate"
-                  description="Manage temperature and climate control systems"
+                  title="I/O Devices"
+                  description="Manage all your connected devices"
+                  className="animate-fade-in opacity-0"
+                  style={{ animationDelay: "0.4s" }}
                 />
               </div>
-            </FeatureCarousel>
-            
-            {/* Statistics Section */}
-            <div className="bg-[#F6F9FC] rounded-2xl p-8 mt-16">
-              <Heading>Why Choose Us</Heading>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="text-4xl font-bold text-[#189AB4] mb-2">99%</div>
-                  <div className="text-gray-600">Customer Satisfaction</div>
+              {/* More Features Section */}
+              <Heading>Discover More Features</Heading>
+              
+              <FeatureCarousel>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <FeatureCard 
+                    icon={RollerShutter}
+                    title="Roller shutters"
+                    description="Open and shut roller shutters"
+                  />
+                  <FeatureCard 
+                    icon={HomeIcon}
+                    title="Home appliances"
+                    description="Control home appliances"
+                  />
+                  <FeatureCard 
+                    icon={Smile}
+                    title="And more"
+                    description="All the above and many more can be done from your phone or tablet"
+                  />
                 </div>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="text-4xl font-bold text-[#189AB4] mb-2">500+</div>
-                  <div className="text-gray-600">Compatible Devices</div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <FeatureCard 
+                    icon={Smile}
+                    title="Security"
+                    description="Monitor and control security systems"
+                  />
+                  <FeatureCard 
+                    icon={Channels}
+                    title="Lighting"
+                    description="Control lighting throughout your home"
+                  />
+                  <FeatureCard 
+                    icon={HomeIcon}
+                    title="Climate"
+                    description="Manage temperature and climate control systems"
+                  />
                 </div>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="text-4xl font-bold text-[#189AB4] mb-2">24/7</div>
-                  <div className="text-gray-600">Technical Support</div>
-                </div>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="text-4xl font-bold text-[#189AB4] mb-2">5★</div>
-                  <div className="text-gray-600">User Ratings</div>
+              </FeatureCarousel>
+              
+              {/* Statistics Section */}
+              <div className="bg-[#F6F9FC] rounded-2xl p-8 mt-16">
+                <Heading>Why Choose Us</Heading>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                  <div className="flex flex-col items-center text-center p-4">
+                    <div className="text-4xl font-bold text-[#189AB4] mb-2">99%</div>
+                    <div className="text-gray-600">Customer Satisfaction</div>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-4">
+                    <div className="text-4xl font-bold text-[#189AB4] mb-2">500+</div>
+                    <div className="text-gray-600">Compatible Devices</div>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-4">
+                    <div className="text-4xl font-bold text-[#189AB4] mb-2">24/7</div>
+                    <div className="text-gray-600">Technical Support</div>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-4">
+                    <div className="text-4xl font-bold text-[#189AB4] mb-2">5★</div>
+                    <div className="text-gray-600">User Ratings</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
           
           {/* Footer */}
           <footer className="bg-[#05445E] text-white py-8 mt-16">
