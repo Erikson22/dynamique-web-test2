@@ -29,6 +29,12 @@ const App = () => (
                 <Route path="/locations" element={<Index />} />
                 <Route path="/access-identifiers" element={<Index />} />
                 <Route path="/automation" element={<Index />} />
+                <Route path="/automation/schedules" element={<Index />} />
+                <Route path="/automation/channel-groups" element={<Index />} />
+                <Route path="/automation/direct-links" element={<Index />} />
+                <Route path="/automation/scenes" element={<Index />} />
+                <Route path="/automation/reactions" element={<Index />} />
+                <Route path="/automation/applications" element={<Index />} />
                 <Route path="/notifications" element={<Index />} />
                 <Route path="/volets" element={<Index />} />
                 <Route path="/eclairage" element={<Index />} />

@@ -1,13 +1,15 @@
 
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { Settings, Smartphone, Home, Key, LayoutDashboard, Bell, Sliders, LightbulbIcon } from "lucide-react";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from "@/components/ui/sidebar";
+import { Settings, Smartphone, Home, Key, LayoutDashboard, Bell, Sliders, LightbulbIcon, Clock, Grid2X2, Link, Coffee, ArrowUpRight, MousePointerClick } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export function DashboardSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState(location.pathname);
+  const [automationMenuOpen, setAutomationMenuOpen] = useState(false);
   
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -49,10 +51,51 @@ export function DashboardSidebar() {
               </SidebarMenuItem>
               
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Automatisations" isActive={activeItem === "/automation"} onClick={() => handleNavigation("/automation")}>
-                  <Settings />
-                  <span>Automatisations</span>
-                </SidebarMenuButton>
+                <DropdownMenu open={automationMenuOpen} onOpenChange={setAutomationMenuOpen}>
+                  <DropdownMenuTrigger asChild>
+                    <SidebarMenuButton 
+                      tooltip="Automatisations" 
+                      isActive={activeItem === "/automation" || 
+                        activeItem === "/automation/schedules" || 
+                        activeItem === "/automation/channel-groups" ||
+                        activeItem === "/automation/direct-links" ||
+                        activeItem === "/automation/scenes" ||
+                        activeItem === "/automation/reactions" ||
+                        activeItem === "/automation/applications"}
+                    >
+                      <Settings />
+                      <span>Automatisations</span>
+                    </SidebarMenuButton>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent side="right" align="start" className="w-64 z-50 bg-background border">
+                    <DropdownMenuGroup>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/schedules")}>
+                        <Clock className="mr-2 h-4 w-4" />
+                        <span>Schedules</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/channel-groups")}>
+                        <Grid2X2 className="mr-2 h-4 w-4" />
+                        <span>Channel groups</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/direct-links")}>
+                        <Link className="mr-2 h-4 w-4" />
+                        <span>Direct links</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/scenes")}>
+                        <Coffee className="mr-2 h-4 w-4" />
+                        <span>Scenes</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/reactions")}>
+                        <ArrowUpRight className="mr-2 h-4 w-4" />
+                        <span>Reactions</span>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleNavigation("/automation/applications")}>
+                        <MousePointerClick className="mr-2 h-4 w-4" />
+                        <span>Applications</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </SidebarMenuItem>
               
               <SidebarMenuItem>
