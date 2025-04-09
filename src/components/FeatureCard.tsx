@@ -8,6 +8,7 @@ interface FeatureCardProps {
   title: string;
   description: string;
   className?: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 
@@ -16,6 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   className,
+  style,
   onClick,
 }) => {
   return (
@@ -24,6 +26,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         "bg-[#189ab4] hover:bg-[#1a8ca5] text-white rounded-xl p-8 flex flex-col items-center justify-center gap-4 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:shadow-lg min-h-[200px]",
         className
       )}
+      style={style}
       onClick={onClick}
     >
       <div className="w-12 h-12 flex items-center justify-center">
