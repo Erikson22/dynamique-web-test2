@@ -1,7 +1,7 @@
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import Hero from "@/components/Hero";
 import FeatureCard from "@/components/FeatureCard";
 import FeatureCarousel from "@/components/FeatureCarousel";
 import Heading from "@/components/Heading";
@@ -38,7 +38,7 @@ const Index = () => {
           </div>
           
           {isDashboardRoute ? <Dashboard /> : <div className="container mx-auto px-4 py-6">
-              <Hero />
+              {/* Hero section removed as requested */}
               
               {/* Featured Cards Section */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
