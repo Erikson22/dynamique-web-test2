@@ -1,78 +1,56 @@
+
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { HomeIcon, RollerShutter, Channels, Smile } from "./CustomIcons";
-import { Settings, BarChart3, BellRing, Home } from "lucide-react";
+import { Settings, Smartphone, Home, Key } from "lucide-react";
+
 export function DashboardSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeItem, setActiveItem] = useState(location.pathname);
+  
   const handleNavigation = (path: string) => {
     navigate(path);
     setActiveItem(path);
   };
+  
   return <Sidebar>
       <SidebarHeader>
         <div className="flex items-center gap-2 px-4 cursor-pointer" onClick={() => handleNavigation("/")}>
           <img alt="Spider Home Logo" className="h-8 w-8" src="/lovable-uploads/bb5b6358-41d4-4607-a2d7-4a6a621d9614.png" />
-          <span className="font-bold text-lg">Spider Home</span>
+          <span className="font-bold text-lg">SpiderHome</span>
         </div>
       </SidebarHeader>
       
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Menu Principal</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Accueil" isActive={activeItem === "/"} onClick={() => handleNavigation("/")}>
-                  <Home />
-                  <span>Accueil</span>
+                <SidebarMenuButton tooltip="Smartphones" isActive={activeItem === "/smartphones"} onClick={() => handleNavigation("/smartphones")}>
+                  <Smartphone />
+                  <span>Smartphones</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Tableau de bord" isActive={activeItem === "/dashboard"} onClick={() => handleNavigation("/dashboard")}>
-                  <BarChart3 />
-                  <span>Tableau de bord</span>
+                <SidebarMenuButton tooltip="Locations" isActive={activeItem === "/locations"} onClick={() => handleNavigation("/locations")}>
+                  <Home />
+                  <span>Locations</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+              
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Appareils" isActive={activeItem === "/devices"} onClick={() => handleNavigation("/devices")}>
-                  <HomeIcon />
-                  <span>Appareils</span>
+                <SidebarMenuButton tooltip="Access Identifiers" isActive={activeItem === "/access-identifiers"} onClick={() => handleNavigation("/access-identifiers")}>
+                  <Key />
+                  <span>Access Identifiers</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+              
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Automatisations" isActive={activeItem === "/automations"} onClick={() => handleNavigation("/automations")}>
-                  <Channels />
-                  <span>Automatisations</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Notifications" isActive={activeItem === "/notifications"} onClick={() => handleNavigation("/notifications")}>
-                  <BellRing />
-                  <span>Notifications</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        
-        <SidebarGroup>
-          <SidebarGroupLabel>Contrôles</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Volets" isActive={activeItem === "/shutters"} onClick={() => handleNavigation("/shutters")}>
-                  <RollerShutter />
-                  <span>Volets</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Éclairage" isActive={activeItem === "/lighting"} onClick={() => handleNavigation("/lighting")}>
-                  <Smile />
-                  <span>Éclairage</span>
+                <SidebarMenuButton tooltip="Automation" isActive={activeItem === "/automation"} onClick={() => handleNavigation("/automation")}>
+                  <Settings />
+                  <span>Automation</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -83,9 +61,9 @@ export function DashboardSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip="Paramètres" isActive={activeItem === "/settings"} onClick={() => handleNavigation("/settings")}>
+            <SidebarMenuButton tooltip="Settings" isActive={activeItem === "/settings"} onClick={() => handleNavigation("/settings")}>
               <Settings />
-              <span>Paramètres</span>
+              <span>Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
