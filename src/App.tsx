@@ -23,6 +23,9 @@ const App = () => (
           <Route path="/locations" element={<Index />} />
           <Route path="/access-identifiers" element={<Index />} />
           <Route path="/automation" element={<Index />} />
+          <Route path="/notifications" element={<Index />} />
+          <Route path="/volets" element={<Index />} />
+          <Route path="/eclairage" element={<Index />} />
           <Route path="/settings" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

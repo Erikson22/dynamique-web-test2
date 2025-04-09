@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { Settings, Smartphone, Home, Key } from "lucide-react";
+import { Settings, Smartphone, Home, Key, LayoutDashboard, Bell, Sliders, LightbulbIcon } from "lucide-react";
 
 export function DashboardSidebar() {
   const navigate = useNavigate();
@@ -24,15 +24,65 @@ export function DashboardSidebar() {
       
       <SidebarContent>
         <SidebarGroup>
+          <SidebarGroupLabel>Menu Principal</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Smartphones" isActive={activeItem === "/smartphones"} onClick={() => handleNavigation("/smartphones")}>
-                  <Smartphone />
-                  <span>Smartphones</span>
+                <SidebarMenuButton tooltip="Accueil" isActive={activeItem === "/"} onClick={() => handleNavigation("/")}>
+                  <Home />
+                  <span>Accueil</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Tableau de bord" isActive={activeItem === "/dashboard"} onClick={() => handleNavigation("/dashboard")}>
+                  <LayoutDashboard />
+                  <span>Tableau de bord</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Appareils" isActive={activeItem === "/smartphones"} onClick={() => handleNavigation("/smartphones")}>
+                  <Smartphone />
+                  <span>Appareils</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Automatisations" isActive={activeItem === "/automation"} onClick={() => handleNavigation("/automation")}>
+                  <Settings />
+                  <span>Automatisations</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Notifications" isActive={activeItem === "/notifications"} onClick={() => handleNavigation("/notifications")}>
+                  <Bell />
+                  <span>Notifications</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        
+        <SidebarGroup>
+          <SidebarGroupLabel>Contrôles</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Volets" isActive={activeItem === "/volets"} onClick={() => handleNavigation("/volets")}>
+                  <Sliders />
+                  <span>Volets</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Éclairage" isActive={activeItem === "/eclairage"} onClick={() => handleNavigation("/eclairage")}>
+                  <LightbulbIcon />
+                  <span>Éclairage</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip="Locations" isActive={activeItem === "/locations"} onClick={() => handleNavigation("/locations")}>
                   <Home />
@@ -44,13 +94,6 @@ export function DashboardSidebar() {
                 <SidebarMenuButton tooltip="Access Identifiers" isActive={activeItem === "/access-identifiers"} onClick={() => handleNavigation("/access-identifiers")}>
                   <Key />
                   <span>Access Identifiers</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Automation" isActive={activeItem === "/automation"} onClick={() => handleNavigation("/automation")}>
-                  <Settings />
-                  <span>Automation</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
