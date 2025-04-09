@@ -9,7 +9,9 @@ import Heading from "@/components/Heading";
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { Smile, Channels, HomeIcon, RollerShutter } from "@/components/CustomIcons";
+import { Menu } from "lucide-react";
 import Dashboard from "./Dashboard";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -20,6 +22,20 @@ const Index = () => {
     <SidebarProvider>
       <div className="flex w-full min-h-screen bg-white">
         <DashboardSidebar />
+        
+        {/* Floating Sidebar Button - visible on all pages */}
+        <Button 
+          variant="outline"
+          size="icon"
+          className="fixed bottom-8 left-8 z-50 rounded-full shadow-lg bg-white hover:bg-gray-100 md:hidden"
+          onClick={() => {
+            const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]') as HTMLButtonElement;
+            if (sidebarTrigger) sidebarTrigger.click();
+          }}
+        >
+          <Menu />
+          <span className="sr-only">Toggle Sidebar</span>
+        </Button>
         
         <SidebarInset>
           <div className="flex items-center p-4 border-b">
