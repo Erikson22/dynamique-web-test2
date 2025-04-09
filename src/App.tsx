@@ -9,6 +9,11 @@ import { DashboardSidebar } from "@/components/DashboardSidebar";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
+import Volets from "./pages/Volets";
+import Eclairage from "./pages/Eclairage";
+import Locations from "./pages/Locations";
+import AccessIdentifiers from "./pages/AccessIdentifiers";
+import Schedules from "./pages/automation/Schedules";
 
 const queryClient = new QueryClient();
 
@@ -26,18 +31,18 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/smartphones" element={<Index />} />
-                <Route path="/locations" element={<Index />} />
-                <Route path="/access-identifiers" element={<Index />} />
+                <Route path="/locations" element={<Locations />} />
+                <Route path="/access-identifiers" element={<AccessIdentifiers />} />
                 <Route path="/automation" element={<Index />} />
-                <Route path="/automation/schedules" element={<Index />} />
+                <Route path="/automation/schedules" element={<Schedules />} />
                 <Route path="/automation/channel-groups" element={<Index />} />
                 <Route path="/automation/direct-links" element={<Index />} />
                 <Route path="/automation/scenes" element={<Index />} />
                 <Route path="/automation/reactions" element={<Index />} />
                 <Route path="/automation/applications" element={<Index />} />
                 <Route path="/notifications" element={<Index />} />
-                <Route path="/volets" element={<Index />} />
-                <Route path="/eclairage" element={<Index />} />
+                <Route path="/volets" element={<Volets />} />
+                <Route path="/eclairage" element={<Eclairage />} />
                 <Route path="/settings" element={<Index />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
