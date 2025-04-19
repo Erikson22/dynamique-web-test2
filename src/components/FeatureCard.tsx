@@ -30,7 +30,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       onClick={onClick}
     >
       <div className="w-12 h-12 flex items-center justify-center">
-        <Icon size={40} className="text-white animate-pulse" />
+        <Icon size={40} className="text-white animate-fade-in opacity-0" />
       </div>
       <h3 className="text-xl font-bold text-center">{title}</h3>
       <p className="text-center text-white/80 text-sm">{description}</p>
